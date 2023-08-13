@@ -45,7 +45,11 @@ wget "https://raw.githubusercontent.com/prjkt-nv404/UDP-Custom-Installer-Manager
  * Optional port exclude separated by coma, ex. ```53,5300```
 
 ## Telegram 
- > [VoltSSH Replies](https://t.me/VoltsshBot)
+ > [💲 Pay](https://t.me/voltverifybot)
+
+ > [👨🏽‍💻 𝚟𝚘𝚕𝚝𝚜𝚜𝚑 𝕏](https://t.me/voltssh)
+
+ > [📣 𝚅𝚘𝚕𝚝𝚂𝚂𝙷 𝙷𝚀 ⚝](https://t.me/voltsshhq)
 
 ## Credit
  > [ePro_Dev_Team](https://t.me/ePro_Dev_Team/141)
