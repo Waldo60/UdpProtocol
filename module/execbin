@@ -1,16 +1,8 @@
 #!/bin/bash
 
-case $newlang in
-en_US)
-  a_enter=' ⇢  Press enter to continue'
-  a_back=' ⇢  RETURN'
-  a_selection_fun=' ⇢  Select an option:'
-  ;;
-esac
-
 # varibles
-export _hora=$(printf '%(%H:%M:%S)T')
-export _fecha=$(printf '%(%D)T')
+export _hora=$(date +%T)
+export _fecha=$(date +%D)
 
 export numero='^[0-9]+$'
 export texto='^[A-Za-z]+$'
@@ -18,16 +10,16 @@ export txt_num='^[A-Za-z0-9]+$'
 
 # 🔹color interfaces🔹colored interfaces
 msg() {
-   COLOR[0]='\033[1;37m'  #BRAN='\033[1;37m'
-   COLOR[1]='\e[31m'      #RED='\e[31m'
-   COLOR[2]='\e[32m'      #GREEN='\e[32m'
-   COLOR[3]='\e[33m'      #YELLOW='\e[33m'
-   COLOR[4]='\e[34m'      #BLUE='\e[34m'
-   COLOR[5]='\e[91m'      #MAGENTA='\e[35m'
-   COLOR[6]='\033[1;97m'  #MAG='\033[1;36m'
-   COLOR[7]='\e[36m'      #teal='\e[36m'
-   COLOR[8]='\e[30m'      #negro='\e[30m'
-   COLOR[9]='\033[34m'    #blue='\033[1;34m'
+  COLOR[0]='\033[1;37m' #BRAN='\033[1;37m'
+  COLOR[1]='\e[31m'     #RED='\e[31m'
+  COLOR[2]='\e[32m'     #GREEN='\e[32m'
+  COLOR[3]='\e[33m'     #YELLOW='\e[33m'
+  COLOR[4]='\e[34m'     #BLUE='\e[34m'
+  COLOR[5]='\e[91m'     #MAGENTA='\e[35m'
+  COLOR[6]='\033[1;97m' #MAG='\033[1;36m'
+  COLOR[7]='\e[36m'     #teal='\e[36m'
+  COLOR[8]='\e[30m'     #negro='\e[30m'
+  COLOR[9]='\033[34m'   #blue='\033[1;34m'
 
   NEGRITO='\e[1m'
   SEMCOR='\e[0m'
@@ -50,11 +42,11 @@ msg() {
   -blu1) cor="${COLOR[9]}" && echo -e "${cor}${2}${SEMCOR}" ;;
   -verd) cor="${COLOR[2]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}" ;;
   -bra) cor="${COLOR[0]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}" ;;
-  # -bar) cor="${COLOR[1]}===============================================" && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
   -bar) cor="${COLOR[1]}┌──────────────────────────────────────────────┐" && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
+  -baru) cor="${COLOR[1]}┌───────────────────────────────────────────────────────┐" && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
+  -barr) cor="${COLOR[1]}└───────────────────────────────────────────────────────┘" && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
   -bar0) cor="${COLOR[1]}└──────────────────────────────────────────────┘" && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
   -bar2) cor="${COLOR[7]}===============================================" && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
-  #-bar3) cor="${COLOR[1]}-----------------------------------------------" && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
   -bar3) cor="${COLOR[1]} ──────────────────────────────────────────────" && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
   -bar4) cor="${COLOR[7]}-----------------------------------------------" && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
   esac
@@ -72,6 +64,29 @@ print_center() {
   while read line; do
     unset space
     x=$(((45 - ${#line}) / 2))
+    for ((i = 0; i < $x; i++)); do
+      space+=' '
+    done
+    space+="$line"
+    if [[ -z $2 ]]; then
+      msg -azu "$space"
+    else
+      msg "$col" "$space"
+    fi
+  done <<<$(echo -e "$text")
+}
+
+print_center2() {
+  if [[ -z $2 ]]; then
+    text="$1"
+  else
+    col="$1"
+    text="$2"
+  fi
+
+  while read line; do
+    unset space
+    x=$(((50 - ${#line}) / 2))
     for ((i = 0; i < $x; i++)); do
       space+=' '
     done
@@ -144,10 +159,13 @@ title() {
 
 main_title() {
   clear
-  msg -bar
+  #msg -bar
   if [[ -z $2 ]]; then
+    #figlet -k VoltSSH | logcat
+    figlet -k VoltSSH | awk '{gsub(/./,"\033[3"int(rand()*5+2)"m&\033[0m")}1'
     print_title -blu1 "$1"
   else
+    figlet -k VoltSSH | logcat
     print_title "$1" "$2"
   fi
   msg -bar0
@@ -155,10 +173,13 @@ main_title() {
 
 title_sub() {
   clear
-  msg -bar
+  #msg -bar
   if [[ -z $2 ]]; then
+    #figlet -k VoltSSH | logcat
+    figlet -k VoltSSH | awk '{gsub(/./,"\033[3"int(rand()*5+2)"m&\033[0m")}1'
     sub_title -blu1 "$1"
   else
+    figlet -k VoltSSH | awk '{gsub(/./,"\033[3"int(rand()*5+2)"m&\033[0m")}1'
     sub_title "$1" "$2"
   fi
   msg -bar0
@@ -167,7 +188,7 @@ title_sub() {
 # completion of tasks🔹home
 enter() {
   msg -bar
-  text="►► ${a_enter:-Press enter to continue} ◄◄"
+  text="${a_enter:-Press enter to continue} ↩︎"
   if [[ -z $1 ]]; then
     print_center -ama "$text"
   else
@@ -176,16 +197,20 @@ enter() {
   read
 }
 
+enter_menu_udp() {
+  menu_udp_request
+}
+
 # option, return back/back🔹option, go back go back
 back() {
   msg -bar
-  echo -ne "$(msg -verd " [0]") $(msg -verm2 ">") " && msg -bra "\033[1;41m${a_back:-GO BACK}"
+  echo -ne "$(msg -verd " ⌈0⌋") $(msg -verm2 "⇢") " && msg -bra "\033[1;41m${a_back:-Return}"
   msg -bar0
 }
 
 exit2home() {
   msg -bar
-  echo -ne "$(msg -verd " [0]") $(msg -verm2 ">") " && msg -bra "\033[1;41m${a_back:-EXIT}"
+  echo -ne "$(msg -verd " ⌈0⌋") $(msg -verm2 "⇢") " && msg -bra "\033[1;41m${a_back:-Exit}"
   msg -bar0
 }
 
@@ -226,13 +251,13 @@ function selection_fun() {
   fi
 
   # Check if option is too large
-  if (( option > 13 )); then
+  if ((option > 13)); then
     echo " ⇢ Option is too large. Please enter a smaller number."
     return 1
   fi
 
   # Initialize range array
-  range=( $(seq 0 $option) )
+  range=($(seq 0 $option))
 
   while true; do
     # Ask for selection
@@ -252,7 +277,6 @@ function selection_fun() {
 
   echo $selection
 }
-
 
 in_option() {
   unset option
@@ -291,6 +315,7 @@ export -f title
 export -f back
 export -f inst
 export -f enter
+export -f enter_menu_udp
 export -f in_option
 export -f in_option_down
 export -f del
