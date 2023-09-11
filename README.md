@@ -38,7 +38,7 @@ sudo -s
 wget "https://raw.githubusercontent.com/prjkt-nv404/UDP-Custom-Installer-Manager/main/install.sh" -O install.sh && chmod +x install.sh && ./install.sh
 ```
 ```
-udp
+udpc
 ```
 
 ## Manually Port Blocking
