@@ -65,7 +65,7 @@ _[A custom configuration, both "stream_buffer" and "receive_buffer" values are s
 
  > [👨🏽‍💻 𝚟𝚘𝚕𝚝𝚜𝚜𝚑 𝕏](https://t.me/voltsshx)
 
- > [📣 𝚅𝚘𝚕𝚝𝚂𝚂𝙷 𝙷𝚀 ⚝](https://t.me/voltsshhq)
+ > [📣 𝚅𝚘𝚕𝚝𝚂𝚂𝙷-𝕏 Club ⚝](https://t.me/voltsshxclub)
 
 ## Credit
  > [ePro_Dev_Team](https://t.me/ePro_Dev_Team/141)
