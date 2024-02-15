@@ -61,11 +61,11 @@ _[A custom configuration, both "stream_buffer" and "receive_buffer" values are s
 ```
 
 ## Telegram 
- > [💲 Pay](https://t.me/voltverifybot)
+ > [💲 Pay](https://t.me/voltverifybot) - ```Keys & Payment```
 
- > [👨🏽‍💻 LS•Dev 🧑‍💻](https://t.me/lsdevx)
+ > [👨🏽‍💻 LS•Dev 🧑‍💻](https://t.me/lsdevx) ```Admin```
 
- > [📣 LS Tunnel](https://t.me/lstunnel)
+ > [📣 LS Tunnel](https://t.me/lstunnel) - ```Channel```
 
 ## Credit
  > [ePro_Dev_Team](https://t.me/ePro_Dev_Team/141)
