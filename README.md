@@ -63,9 +63,9 @@ _[A custom configuration, both "stream_buffer" and "receive_buffer" values are s
 ## Telegram 
  > [💲 Pay](https://t.me/voltverifybot)
 
- > [👨🏽‍💻 𝚟𝚘𝚕𝚝𝚜𝚜𝚑 𝕏](https://t.me/voltsshx)
+ > [👨🏽‍💻 LS•Dev 🧑‍💻](https://t.me/lsdevx)
 
- > [📣 𝚅𝚘𝚕𝚝𝚂𝚂𝙷-𝕏 Club ⚝](https://t.me/voltsshxclub)
+ > [📣 LS Tunnel](https://t.me/lstunnel)
 
 ## Credit
  > [ePro_Dev_Team](https://t.me/ePro_Dev_Team/141)
